@@ -1,4 +1,5 @@
 package Collections;
+import javax.sound.midi.Soundbank;
 import  java.lang.*;
 import java.lang.Object;
 
@@ -11,6 +12,8 @@ public class ArrayTest {
 
 
     public static void main (String[] args)  {
+
+
 
 
         Scanner cin = new Scanner(System.in);
@@ -29,9 +32,16 @@ public class ArrayTest {
         ArrayList<String> arrayListmain = new ArrayList<>();
         ArrayList<String> arrayListmain2 = new ArrayList<>();
 
+
+
+
+
+
+
+
         while(true){
             System.out.print("\n\n9-Create second array and Compare with first\n8-sorted\n7-get new array ( copy or with new add )\n6-clear/remove\n5-find  index by text\n" +
-                    "4 get result by index \n3 input \n2 output array\n1 exit\n0 fill array by random number\nWrite:");
+                    "4- \n3 input \n2 output array\n1 exit\n0 fill array by random number\nWrite:");
 
 
             numbers = cin.nextInt();
@@ -91,7 +101,85 @@ public class ArrayTest {
             }
             else if ( numbers == 4){
 
-                System.out.println("Here is Empty ");
+                System.out.println("Welcome to HashMap\n");
+
+                MethodEquelsHashmap methodEquelsHashmap = new MethodEquelsHashmap();
+
+                int keyInarray = methodEquelsHashmap.getKeyInArray();
+                int valueInarray = methodEquelsHashmap.valueInArray;
+
+                int keyInarraySet ;
+                int valueInarraySet ;
+
+                Map<Integer,Integer> map = new HashMap<>();
+
+
+                while(true){
+                    System.out.println("\n\n0-exit\n1-fill random key and value\n2-show Hashmap\n3-fill by yourself\n4-clear by index\n5-clear by name\n6-clear all");
+                    numbers = cin.nextInt();
+                    if(numbers == 0){
+                        break;
+                    }
+                    switch (numbers){
+                        case 1:
+                            System.out.println("Generating.....");
+
+                            for (int i = 0; i < 5; i++) {
+                                // randomNumber =20+ (int) ( Math.random() * 80 );
+
+                                keyInarraySet =20+ (int) ( Math.random() * 20 );
+                                valueInarraySet =1+ (int) ( Math.random() * 10 );
+
+                                map.put(keyInarraySet,valueInarraySet);
+
+                            }
+                            System.out.println("\nCompleted!");
+                            break;
+                        case 2:
+                            System.out.println(map);
+                            break;
+                        case 3:
+                            System.out.println("How many times u want to input? Write number: ");
+                            numbers = cin.nextInt();
+                            for (int i = 0; i <numbers ; i++) {
+
+                                System.out.println("Write key and value");
+                                System.out.print("Key:");
+                                keyInarraySet = cin.nextInt();
+                                System.out.println("Value: ");
+                                valueInarraySet= cin.nextInt();
+
+                            }
+                            System.out.println(map);
+                            break;
+                        case 4:
+                            System.out.println("You select to clear HashMap");
+                            if (map.isEmpty() == true){
+                                System.out.println("Hashmap is empty, please input data");
+                                break;
+                            }
+                            map.clear();
+                            break;
+                        case 5:
+                            System.out.println("Your Map");
+                            System.out.println(map);
+                            System.out.println("Write key and value");
+                            System.out.print("Key:");
+                            keyInarraySet = cin.nextInt();
+                            System.out.println("Value: ");
+                            valueInarraySet= cin.nextInt();
+                            map.remove(keyInarraySet,valueInarraySet);
+                            System.out.println("Your Map");
+                            System.out.println(map);
+                            break;
+
+
+                    }
+
+                }
+
+
+
 
 
 
