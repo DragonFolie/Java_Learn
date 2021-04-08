@@ -1,5 +1,5 @@
 # Hi WORLD!
-its my small project where i use all what i learn.
-Every package which i called in project is a topic in java which i learn learned while studying JAVA.
-In homework packege i will solve different task.
-Thanks for reading this. Good Luck!
+this is my little project where I use everything I learned while learning. 
+Each package I named in the project is a Java topic that I study. 
+In the homework package, I solve various tasks. 
+Thanks for reading this. Happiness!
