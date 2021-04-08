@@ -15,7 +15,7 @@ public class ArrayTest {
 
 
 
-
+        MethodEquelsHashmap methodEquelsHashmap = new MethodEquelsHashmap();
         Scanner cin = new Scanner(System.in);
 
         String inputArrayData ;
@@ -31,6 +31,11 @@ public class ArrayTest {
 
         ArrayList<String> arrayListmain = new ArrayList<>();
         ArrayList<String> arrayListmain2 = new ArrayList<>();
+        Map<Integer,String> linkedHashMapArray= new LinkedHashMap<>();
+
+
+
+
 
 
 
@@ -50,242 +55,297 @@ public class ArrayTest {
 
 
                 case 1:{
-                    System.out.println("Welcome to ArrayList, change command\n");
-                    System.out.print("\n\n10-Create second array and Compare with first" +
-                            "\n9-get new array ( copy or with new add )" +
-                            "\n8-sorted" +
-                            "\n7-Clone array\n2-Add new array into old with some new data" +
-                            "\n6-clear/remove" +
-                            "\n5-find by...\n" +
-                            "\n4 input " +
-                            "\n3- output array" +
-                            "\n2 fill array by random number" +
-                            "\n1-Go back" +
-                            "\n0 exit from programm\nWrite:");
+
+                    while (true){
+
+                        System.out.println("Welcome to ArrayList, change command\n");
+                        System.out.print("" +
+                                "\n10-Create second array and Compare with first" +
+                                "\n9-get new array ( copy or with new add )" +
+                                "\n8-sorted" +
+                                "\n7-Clone array or Add new array into old with some new data" +
+                                "\n6-clear/remove" +
+                                "\n5-find by..." +
+                                "\n4 input " +
+                                "\n3- output array" +
+                                "\n2 fill array by random number" +
+                                "\n1-Go back" +
+                                "\n0 exit from programm" +
+                                "\nWrite:");
 
 
-                    numbers = cin.nextInt();
-                    if (numbers == 2){
+                        numbers = cin.nextInt();
+                        if (numbers == 0){
+                            System.exit(0);
+                        }
+                        else if (numbers==1){
+                            break;
+                        }
 
-                        for (int i = 0; i < 100; i++) {
-                            // randomNumber =20+ (int) ( Math.random() * 80 );
-                            randomNumber =20+ (int) ( Math.random() * 80 );
+                        else if (numbers == 2){
 
-                            arrayListmain.add(randomNumber.toString());
+                            for (int i = 0; i < 100; i++) {
+                                // randomNumber =20+ (int) ( Math.random() * 80 );
+                                randomNumber =1+ (int) ( Math.random() * 10 );
+
+                                arrayListmain.add(randomNumber.toString());
+
+                            }
 
                         }
 
-                    }
 
 
 
 
 
-                    if (numbers == 0){
-                        System.exit(0);
-                    }
 
-                    else if(numbers== 3){
-                        System.out.println(arrayListmain + "\n\n");
-                    }
-                    else if(numbers==4){
+                        else if(numbers== 3){
+                            System.out.println(arrayListmain + "\n\n");
+                        }
+                        else if(numbers==4){
 
-                        System.out.print("1-input one time\n2-input count time\nWrite:");
-                        numbers = cin.nextInt();
-                        switch (numbers){
-                            case 1:
-                                System.out.println("Input one date:");
+                            System.out.print("1-input one time\n2-input count time\nWrite:");
+                            numbers = cin.nextInt();
+                            switch (numbers){
+                                case 1:
+                                    System.out.println("Input one date:");
 
-                                inputArrayData = cin.next();
-                                System.out.println("Process....");
-                                arrayListmain.add(inputArrayData);
-                                inputArrayData = null;
-                                break;
-                            case 2:
-                                System.out.println("Input count u want to input");
-
-
-                                int count = cin.nextInt();
-
-                                for (int i = 0; i < count; i++) {
-
-                                    System.out.println("Input:");
                                     inputArrayData = cin.next();
+                                    System.out.println("Process....");
                                     arrayListmain.add(inputArrayData);
+                                    inputArrayData = null;
+                                    break;
+                                case 2:
+                                    System.out.println("Input count u want to input");
 
-                                }
-                                break;
 
-                        }
+                                    int count = cin.nextInt();
 
+                                    for (int i = 0; i < count; i++) {
 
-                    }
+                                        System.out.println("Input:");
+                                        inputArrayData = cin.next();
+                                        arrayListmain.add(inputArrayData);
 
-                    else if(numbers == 5){
-                        System.out.println("1-get result by index\n2-find  index by text(slow)\n3-find  index by text( fast, binirySearch )");
-                        numbers = cin.nextInt();
-                        switch (numbers) {
-                            case 1:
-                                System.out.println("Write index:");
-                                numbers= cin.nextInt();
-                                System.out.println("Result: "+arrayListmain.get(numbers));
-                                break;
-                            case 2:
-                                System.out.println("Slow search\nWrite what u want to find by text:");
-                                arrayDataFind = cin.next();
-                                System.out.println(arrayListmain.indexOf(arrayDataFind));
-                                break;
-                            case 3:
+                                    }
+                                    break;
 
-                                System.out.println("Fast search\nWrite what u want to find by text:");
-                                arrayDataFind = cin.next();
-                                Collections.sort(arrayListmain);
-
-                                int arrayBinarySearch = Collections.binarySearch(arrayListmain,arrayDataFind);
-                                System.out.println(arrayBinarySearch);
-                                break;
-
+                            }
 
 
                         }
 
+                        else if(numbers == 5){
+                            System.out.println("1-get result by index\n2-find  index by text(slow)\n3-find  index by text( fast, binirySearch )");
+                            numbers = cin.nextInt();
+                            switch (numbers) {
+                                case 1:
+                                    System.out.println("Write index:");
+                                    numbers= cin.nextInt();
+                                    System.out.println("Result: "+arrayListmain.get(numbers));
+                                    break;
+                                case 2:
+                                    System.out.println("Slow search\nWrite what u want to find by text:");
+                                    arrayDataFind = cin.next();
+                                    System.out.println(arrayListmain.indexOf(arrayDataFind));
+                                    break;
+                                case 3:
 
-                    }
-                    else if(numbers == 6){
-                        System.out.print("1-Clear array\n2-remove by index\n3-remove by name\nWrite:");
-                        numbers = cin.nextInt();
-                        switch (numbers){
-                            case 1:
-                                arrayListmain.clear();
-                                break;
-                            case 2:
+                                    System.out.println("Fast search\nWrite what u want to find by text:");
+                                    arrayDataFind = cin.next();
+                                    Collections.sort(arrayListmain);
 
-                                System.out.print("write index from 0 to "+arrayListmain.size()+"\nWrite:" );
-                                numbers = cin.nextInt();
-                                arrayListmain.remove(numbers);
-                                break;
-                            case 3 :
-                                System.out.print("write name:" );
-                                inputArrayData = cin.next();
-                                arrayListmain.remove(inputArrayData);
-                                break;
+                                    int arrayBinarySearch = Collections.binarySearch(arrayListmain,arrayDataFind);
+                                    System.out.println(arrayBinarySearch);
+                                    break;
 
+
+
+                            }
 
 
                         }
+                        else if(numbers == 6){
+                            System.out.print("1-Clear array\n2-remove by index\n3-remove by name\nWrite:");
+                            numbers = cin.nextInt();
+                            switch (numbers){
+                                case 1:
+                                    arrayListmain.clear();
+                                    break;
+                                case 2:
 
-                    }
-                    else if (numbers == 7){
+                                    System.out.print("write index from 0 to "+arrayListmain.size()+"\nWrite:" );
+                                    numbers = cin.nextInt();
+                                    arrayListmain.remove(numbers);
+                                    break;
+                                case 3 :
+                                    System.out.print("write name:" );
+                                    inputArrayData = cin.next();
+                                    arrayListmain.remove(inputArrayData);
+                                    break;
 
 
-                        System.out.println("1-Clone array\n2-Add new array into old with some new data");
-                        numbers = cin.nextInt();
-                        switch (numbers){
+
+                            }
+
+                        }
+                        else if (numbers == 7){
 
 
-                            case 1:
+                            System.out.println("1-Clone array\n2-Add new array into old with some new data");
+                            numbers = cin.nextInt();
+                            switch (numbers){
+
+
+                                case 1:
 //                        List<String> l1 = new ArrayList<String>();
 //                        l1.add("Hello");
 //                        l1.add("World");
 //                        List<String> l2 = new ArrayList<String>(l1); //A new arrayList.
 //                        l2.add("Everybody");
 
-                                List<String> CopyOfarrayListmain_case1 = new ArrayList<>(arrayListmain); //A new arrayList.
+                                    List<String> CopyOfarrayListmain_case1 = new ArrayList<>(arrayListmain); //A new arrayList.
 
-                                System.out.println("Your new array:\n"+ CopyOfarrayListmain_case1);
-                                break;
-
-
+                                    System.out.println("Your new array:\n"+ CopyOfarrayListmain_case1);
+                                    break;
 
 
 
 
-                            case 2:
-                                ArrayList<String> CopyOfarrayListmain_case2 = new ArrayList(); //A new arrayList.
+
+
+                                case 2:
+                                    ArrayList<String> CopyOfarrayListmain_case2 = new ArrayList(); //A new arrayList.
 //
 
-                                System.out.println("Input from some index? \n1-yes\n2-no");
-                                numbers = cin.nextInt();
+                                    System.out.println("Input from some index? \n1-yes\n2-no");
+                                    numbers = cin.nextInt();
 
-                                switch (numbers){
-
-
-                                    case 1:
+                                    switch (numbers){
 
 
-                                        for (int i = 0; i < 5; i++) {
-
-                                            randomNumber =5+ (int) ( Math.random() * 5 );
-                                            CopyOfarrayListmain_case2.add(randomNumber.toString());
-
-                                        }
-                                        System.out.println("From index:");
-                                        numbers = cin.nextInt();
-
-                                        arrayListmain.addAll(numbers,CopyOfarrayListmain_case2);
-                                        System.out.println(arrayListmain);
-                                        break;
+                                        case 1:
 
 
-                                    case 2:
+                                            for (int i = 0; i < 5; i++) {
 
-                                        System.out.println("Hi");
-                                        for (int i = 0; i < 5; i++) {
+                                                randomNumber =5+ (int) ( Math.random() * 5 );
+                                                CopyOfarrayListmain_case2.add(randomNumber.toString());
 
-                                            randomNumber =5+ (int) ( Math.random() * 5 );
-                                            CopyOfarrayListmain_case2.add(randomNumber.toString());
+                                            }
+                                            System.out.println("From index:");
+                                            numbers = cin.nextInt();
 
-                                        }
-                                        arrayListmain.addAll(CopyOfarrayListmain_case2);
-                                        System.out.println(arrayListmain);
-                                        break;
+                                            arrayListmain.addAll(numbers,CopyOfarrayListmain_case2);
+                                            System.out.println(arrayListmain);
+                                            break;
 
+
+                                        case 2:
+
+                                            System.out.println("Hi");
+                                            for (int i = 0; i < 5; i++) {
+
+                                                randomNumber =5+ (int) ( Math.random() * 5 );
+                                                CopyOfarrayListmain_case2.add(randomNumber.toString());
+
+                                            }
+                                            arrayListmain.addAll(CopyOfarrayListmain_case2);
+                                            System.out.println(arrayListmain);
+                                            break;
+
+                                    }
+
+
+                            }
+
+
+
+
+
+
+                        }else if (numbers ==8){
+
+                            Collections.sort(arrayListmain);
+                            System.out.println(arrayListmain);
+
+
+                        }
+                        if (numbers == 9){
+                            int countNumberFalse =0;
+                            int countNumberTrue = 0;
+                            System.out.println("Welcome to Create second array and Compare with first");
+
+
+                            for (int i = 0; i < arrayListmain.size(); i++) {
+                                randomNumber =20+ (int) ( Math.random() * 80 );
+                                arrayListmain2.add(randomNumber.toString());
+
+                            }
+
+                            System.out.println(arrayListmain + "First Array\n");
+
+                            System.out.println(arrayListmain2 + "Second Array\n");
+
+                            int a = arrayListmain.size();
+                            System.out.println("A="+a);
+
+//                            if(arrayListmain.size() > arrayListmain2.size())
+//                            {
+//                                a = arrayListmain2.size();
+//
+//                            }
+//                            else  {
+//                                a = arrayListmain.size();
+//                            }
+
+                            for (int  i =0  ; i < a; i++) {
+
+                                // Вставити зрівняння equals
+
+                                if (arrayListmain.equals(arrayListmain2)){
+                                    linkedHashMapArray.put(i,"True");
+                                }
+                                else {
+                                    linkedHashMapArray.put(i,"False");
                                 }
 
 
-                        }
+
+                            }
+                            // True +1 цифирка Фолс +1 потім зрівняти чого більше і вивести
+//                            for (int i = 0; i < linkedHashMapArray.size(); i++) {
+//
+//                                    if (linkedHashMapArray.("True")){
+//
+//                                        countNumberTrue += 1;
+//                                    }
+//                                    else {
+//
+//                                        countNumberTrue += 1;
+//                                    }
+//                                for (char ch : linkedHashMapArray<Integer, String>) {
+//                                    String get = map.get(ch);
+//                                    if (get!=null) encode.append(get);
+//                                }
+//                                  https://ru.stackoverflow.com/questions/760751/%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE-%D0%BA%D0%BB%D1%8E%D1%87%D1%83
+//                            }
+//                            System.out.println("True:"+countNumberTrue +"False:"+countNumberFalse);
+
+                            System.out.println(linkedHashMapArray);
 
 
-
-
-
-
-                    }else if (numbers ==8){
-
-                        Collections.sort(arrayListmain);
-                        System.out.println(arrayListmain);
-
-                    }
-                    if (numbers == 9){
-
-                        for (int i = 0; i < 10; i++) {
-                            randomNumber =20+ (int) ( Math.random() * 80 );
-                            arrayListmain2.add(randomNumber.toString());
-
-                        }
-                        System.out.println(arrayListmain2 + "\n\n");
-                        System.out.println(arrayListmain + "\n\n");
-                        int a;
-                        if(arrayListmain.size() > arrayListmain2.size())
-                        {
-                            a = arrayListmain2.size();
 
                         }
-                        else  {
-                            a = arrayListmain.size();
-                        }
-                        for (int  i =0  ; i < a; i++) {
-
-                            // Вставити зрівняння equals
-
+                        else{
+                            System.out.println("pls write correct number");
                         }
 
-
-                    }
-                    else{
-                        System.out.println("pls write correct number");
                     }
                     break;
+
+
                 }
 
                 case 2:
@@ -294,7 +354,7 @@ public class ArrayTest {
 
                     System.out.println("Welcome to HashMap\n");
 
-                    MethodEquelsHashmap methodEquelsHashmap = new MethodEquelsHashmap();
+
 
                     int keyInarray = methodEquelsHashmap.getKeyInArray();
                     int valueInarray = methodEquelsHashmap.valueInArray;
@@ -399,7 +459,9 @@ public class ArrayTest {
                 }
 
 
-
+                break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + numbers);
             }
 
 
