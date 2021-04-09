@@ -31,7 +31,11 @@ public class ArrayTest {
 
         ArrayList<String> arrayListmain = new ArrayList<>();
         ArrayList<String> arrayListmain2 = new ArrayList<>();
+
         Map<Integer,String> linkedHashMapArray= new LinkedHashMap<>();
+
+
+
 
 
 
@@ -275,11 +279,13 @@ public class ArrayTest {
                         if (numbers == 9){
                             int countNumberFalse =0;
                             int countNumberTrue = 0;
+//                            int countError = 0;
                             System.out.println("Welcome to Create second array and Compare with first");
 
 
                             for (int i = 0; i < arrayListmain.size(); i++) {
-                                randomNumber =20+ (int) ( Math.random() * 80 );
+
+                                randomNumber =1+ (int) ( Math.random() * 10 );
                                 arrayListmain2.add(randomNumber.toString());
 
                             }
@@ -289,51 +295,59 @@ public class ArrayTest {
                             System.out.println(arrayListmain2 + "Second Array\n");
 
                             int a = arrayListmain.size();
-                            System.out.println("A="+a);
 
-//                            if(arrayListmain.size() > arrayListmain2.size())
-//                            {
-//                                a = arrayListmain2.size();
-//
-//                            }
-//                            else  {
-//                                a = arrayListmain.size();
-//                            }
 
                             for (int  i =0  ; i < a; i++) {
 
                                 // Вставити зрівняння equals
 
-                                if (arrayListmain.equals(arrayListmain2)){
+                                if (arrayListmain.get(i).equals(arrayListmain2.get(i))){
                                     linkedHashMapArray.put(i,"True");
                                 }
-                                else {
+                                if (!arrayListmain.get(i).equals(arrayListmain2.get(i))){
                                     linkedHashMapArray.put(i,"False");
                                 }
+//                                else{
+//                                    linkedHashMapArray.put(i,"Error");
+//                                    countError +=1;
+//
+//                                }
+                            }
+
+                            System.out.println("linkedHashMapArray: "+linkedHashMapArray);
+                            System.out.println("Size:"+linkedHashMapArray.size());
+
+                            // Собственно то самое получения значения ( value ), сначала я добавляю значения в linkedHashMapArray (
+                            // циклом выше ) позже при linkedHashMapArray.get достаю значения по номеру ( который
+                            // я циклом выше добавляю ) ключа и сравниваю его с значения String
+
+                            for (int i = 0; i < a; i++) {
+//                                System.out.println("I="+i);
+
+                                if (linkedHashMapArray.get(i)== "True"){
 
 
+                                    countNumberTrue +=1;
+
+                                }
+                                else if(linkedHashMapArray.get(i)== "False") {
+
+                                    countNumberFalse +=1;
+
+                                }
+//                                else if(linkedHashMapArray.get(i)== "Error") {
+//
+//                                    countError +=1;
+//
+//                                }
 
                             }
-                            // True +1 цифирка Фолс +1 потім зрівняти чого більше і вивести
-//                            for (int i = 0; i < linkedHashMapArray.size(); i++) {
 //
-//                                    if (linkedHashMapArray.("True")){
-//
-//                                        countNumberTrue += 1;
-//                                    }
-//                                    else {
-//
-//                                        countNumberTrue += 1;
-//                                    }
-//                                for (char ch : linkedHashMapArray<Integer, String>) {
-//                                    String get = map.get(ch);
-//                                    if (get!=null) encode.append(get);
-//                                }
-//                                  https://ru.stackoverflow.com/questions/760751/%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE-%D0%BA%D0%BB%D1%8E%D1%87%D1%83
-//                            }
-//                            System.out.println("True:"+countNumberTrue +"False:"+countNumberFalse);
+//                            System.out.println("True:"+countNumberTrue +"False:"+countNumberFalse+"Errors:"+countError);
+                            System.out.println("True:"+countNumberTrue +"False:"+countNumberFalse);
+//      https://ru.stackoverflow.com/questions/760751/%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE-%D0%BA%D0%BB%D1%8E%D1%87%D1%83
 
-                            System.out.println(linkedHashMapArray);
+
 
 
 
