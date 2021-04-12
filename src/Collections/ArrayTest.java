@@ -380,6 +380,7 @@ public class ArrayTest {
 
 
                     while(true){
+                        //   5 and 4 пункт замутити по тексту який вводиш як зверху я робив
                         System.out.println("\n\n0-exit\n1-fill random key and value\n2-show Hashmap\n3-fill by yourself\n4-clear by key\n5-clear by value\n6-clear all");
                         numbers = cin.nextInt();
                         if(numbers == 0){
@@ -422,7 +423,7 @@ public class ArrayTest {
                                 System.out.println(map);
                                 break;
                             case 4:
-                                System.out.println("You select to clear HashMap");
+                                System.out.println("You select to clear HashMap by key");
                                 if (map.isEmpty() == true){
                                     System.out.println("Hashmap is empty, please input data");
                                     break;
