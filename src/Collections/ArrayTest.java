@@ -324,13 +324,13 @@ public class ArrayTest {
                             for (int i = 0; i < a; i++) {
 //                                System.out.println("I="+i);
 
-                                if (linkedHashMapArray.get(i)== "True"){
+                                if (linkedHashMapArray.get(i).equals("True")){
 
 
                                     countNumberTrue +=1;
 
                                 }
-                                else if(linkedHashMapArray.get(i)== "False") {
+                                else if(linkedHashMapArray.get(i).equals("False")) {
 
                                     countNumberFalse +=1;
 
@@ -375,13 +375,23 @@ public class ArrayTest {
 
                     int keyInarraySet ;
                     int valueInarraySet ;
+                    int findValueKey;
 
                     Map<Integer,Integer> map = new HashMap<>();
 
 
                     while(true){
+
                         //   5 and 4 пункт замутити по тексту який вводиш як зверху я робив
-                        System.out.println("\n\n0-exit\n1-fill random key and value\n2-show Hashmap\n3-fill by yourself\n4-clear by key\n5-clear by value\n6-clear all");
+
+                        System.out.println("\n" +
+                                "\n0-exit" +
+                                "\n1-fill random key and value" +
+                                "\n2-show Hashmap" +
+                                "\n3-fill count time by yourself" +
+                                "\n4-clear by key" +
+                                "\n5-clear by value" +
+                                "\n6-clear all");
                         numbers = cin.nextInt();
                         if(numbers == 0){
                             break;
@@ -424,31 +434,61 @@ public class ArrayTest {
                                 break;
                             case 4:
                                 System.out.println("You select to clear HashMap by key");
-                                if (map.isEmpty() == true){
+                                if (map.isEmpty()){
                                     System.out.println("Hashmap is empty, please input data");
                                     break;
                                 }
-                                map.clear();
+
+
+                                System.out.println("Please write key:");
+                                numbers = cin.nextInt();
+                                map.remove(numbers);
+
+
+
+
+
+
                                 break;
                             case 5:
                                 System.out.println("Your Map");
 
                                 System.out.println(map);
-                                if (map.isEmpty() == true){
+                                if (map.isEmpty()){
                                     System.out.println("Hashmap is empty, please input data");
                                     break;
                                 }
-                                System.out.println("Write key and value");
-                                System.out.print("Key:");
-                                keyInarraySet = cin.nextInt();
+                                System.out.println("Write  value");
+
+
                                 System.out.println("Value: ");
                                 valueInarraySet= cin.nextInt();
-                                map.remove(keyInarraySet,valueInarraySet);
+
+
+                                //Добавити звичайний цикл, бо цей викидує  ConcurrentModificationException,
+                                // можна попробувати якось черещ ітератор
+                                //  https://habr.com/ru/post/325426/
+
+//                                for (Map.Entry<Integer,Integer> entry: map.entrySet()) {
+//                                    if(valueInarraySet == entry.getValue()){
+//                                        System.out.println(entry+" Ent  ");
+//                                        System.out.println("Now will be removed an"+entry.getValue()+"  "+entry.getKey());
+//                                        findValueKey = entry.getKey();
+//                                        System.out.println(findValueKey+"  key  ");
+//                                        map.remove(findValueKey);
+//
+//                                    }
+//                                }
+
+
+
+
+
                                 System.out.println("Your Map");
                                 System.out.println(map);
                                 break;
                             case 6:
-                                if (map.isEmpty() == true){
+                                if (map.isEmpty()){
                                     System.out.println("Hashmap is empty, please input data");
                                     break;
                                 }
