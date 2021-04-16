@@ -32,7 +32,9 @@ public class ArrayTest {
         ArrayList<String> arrayListmain = new ArrayList<>();
         ArrayList<String> arrayListmain2 = new ArrayList<>();
 
+
         Map<Integer,String> linkedHashMapArray= new LinkedHashMap<>();
+
 
 
 
@@ -455,10 +457,10 @@ public class ArrayTest {
 
                                 System.out.println(map);
                                 if (map.isEmpty()){
-                                    System.out.println("Hashmap is empty, please input data");
+                                    System.out.println("LinkedHashmap is empty, please input data");
                                     break;
                                 }
-                                System.out.println("Write  value");
+                                System.out.println("Write  value which u want to delete");
 
 
                                 System.out.println("Value: ");
@@ -468,6 +470,7 @@ public class ArrayTest {
                                 //Добавити звичайний цикл, бо цей викидує  ConcurrentModificationException,
                                 // можна попробувати якось черещ ітератор
                                 //  https://habr.com/ru/post/325426/
+                                // https://gist.github.com/tejainece/d32cba84b747c0b2e7df
 
 //                                for (Map.Entry<Integer,Integer> entry: map.entrySet()) {
 //                                    if(valueInarraySet == entry.getValue()){
@@ -479,6 +482,24 @@ public class ArrayTest {
 //
 //                                    }
 //                                }
+                                System.out.println(map.size());
+
+                                List<Integer> MaxKeyInLinkedHashMap = new ArrayList<>();
+
+//Треба замутит якось щоб воно пробігалось по массиву і якщо тру то видалилось
+//                                for (int i = 0; i < map.size(); i++) {
+//                                    if (valueInarraySet == map.get(i)){
+//                                        map.remove(i);
+//                                    }
+//
+//                                }
+
+
+
+
+
+
+
 
 
 
