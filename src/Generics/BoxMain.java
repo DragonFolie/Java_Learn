@@ -26,5 +26,11 @@ public class BoxMain {
 
 
 
+        OnlyNumberBox <Integer> onlyNumberBox1 = new OnlyNumberBox<>(50,50);
+        int size = onlyNumberBox1.getA() * onlyNumberBox1.getB();
+        System.out.println("Size: "+size);
+
+
+
     }
 }
