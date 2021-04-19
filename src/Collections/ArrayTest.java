@@ -428,8 +428,11 @@ public class ArrayTest {
                                     System.out.println("Write key and value");
                                     System.out.print("Key:");
                                     keyInarraySet = cin.nextInt();
+
                                     System.out.println("Value: ");
                                     valueInarraySet= cin.nextInt();
+
+                                    map.put(keyInarraySet,valueInarraySet);
 
                                 }
                                 System.out.println(map);
@@ -471,6 +474,9 @@ public class ArrayTest {
                                 // можна попробувати якось черещ ітератор
                                 //  https://habr.com/ru/post/325426/
                                 // https://gist.github.com/tejainece/d32cba84b747c0b2e7df
+
+
+                                // Глянути StackOverflow мої питання ( чекнути відповідь )
 
 //                                for (Map.Entry<Integer,Integer> entry: map.entrySet()) {
 //                                    if(valueInarraySet == entry.getValue()){

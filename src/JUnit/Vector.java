@@ -7,6 +7,7 @@ public class Vector {
 
 
     public double getWidth() {
+
         return width;
     }
 
@@ -15,21 +16,33 @@ public class Vector {
     }
 
     public double getHeight() {
+
         return height;
     }
 
     public void setHeight(double height) {
+
         this.height = height;
     }
 
-    public double size(){
-        return Math.sqrt(height*height + width*width);
+    public double size(double width, double height){
+
+        return height + width;
     }
-    public static double Zero(){
+
+
+    public static double Zeroto(double width    , double height){
         if(height == 0)
-            throw ArithmeticException("Cant");
-        if (width== 0)
-            throw ArithmeticException.class;
+            throw new ArithmeticException("Cant");
+        else if (width== 0)
+            throw new ArithmeticException ("Cant");
         return height/width;
     }
+    public static void Timecount() throws InterruptedException {
+        Thread.sleep(500);
+        return;
+
+    }
+
+
 }
