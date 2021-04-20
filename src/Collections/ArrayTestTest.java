@@ -164,6 +164,7 @@ public class ArrayTestTest {
 
             arrayListmain.add(randomNumber.toString());
 
+
         }
 
 
@@ -238,7 +239,7 @@ public class ArrayTestTest {
         int countNumberFalse =0;
         int countNumberTrue = 0;
 //                            int countError = 0;
-        System.out.println("Welcome to Create second array and Compare with first");
+//        ;
 
 
 
