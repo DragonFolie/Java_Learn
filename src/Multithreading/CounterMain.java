@@ -15,6 +15,7 @@ public class CounterMain {
         Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
+
                 for (int i = 0; i < 100; i++) {
                     counter.dec();
                 }
@@ -22,12 +23,7 @@ public class CounterMain {
         });
         thread.start();
         thread2.start();
-        try {
-            thread.join();
-            thread2.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         System.out.println(counter.getValue());
 
     }

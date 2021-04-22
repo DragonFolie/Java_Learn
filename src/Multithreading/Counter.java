@@ -1,23 +1,50 @@
 package Multithreading;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Counter {
-    private int value;
-    private Object object = new Object();
+//    private int value;
 
-    public void inc(){
-        synchronized (object){
-            value++;
-        }
+    private AtomicInteger value = new AtomicInteger();
+
+    //private Object object = new Object();
+
+//    public void inc(){
+//        synchronized (object){
+//
+//            value++;
+//
+//        }
+//
+//
+//    }
+//    public void dec(){
+//        synchronized (object){
+//
+//            value--;
+//
+//        }
+//
+//    }
+public void inc(){
 
 
-    }
+        value.getAndIncrement();
+
+
+
+
+}
     public void dec(){
-        synchronized (object){
-            value--;
-        }
+
+
+            value.getAndDecrement();
+
+
 
     }
     public int getValue() {
-        return value;
+        return value.intValue();
     }
 }
