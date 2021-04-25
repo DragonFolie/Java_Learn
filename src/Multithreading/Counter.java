@@ -8,6 +8,8 @@ public class Counter {
 
     private AtomicInteger value = new AtomicInteger();
 
+    Object object = new Object();
+
     //private Object object = new Object();
 
 //    public void inc(){
@@ -29,8 +31,10 @@ public class Counter {
 //    }
 public void inc(){
 
-
+    synchronized (object){
         value.getAndIncrement();
+    }
+
 
 
 
@@ -38,8 +42,12 @@ public void inc(){
 }
     public void dec(){
 
+    synchronized (object){
+        value.getAndDecrement();
+    }
 
-            value.getAndDecrement();
+
+
 
 
 
