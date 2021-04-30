@@ -1,10 +1,9 @@
 package Multithreading.Homework;
 
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.Semaphore;
+import test.TestMain;
+
+import java.util.*;
+import java.util.concurrent.*;
 
 public class RaceMain {
     public static void main(String[] args) {
@@ -12,8 +11,22 @@ public class RaceMain {
 
         Semaphore tunelBarrier = new Semaphore(3);
 
+        Semaphore ArrayListlBarrier = new Semaphore(1);
+
         CountDownLatch countDownLatch = new CountDownLatch(10);
-        TreeSet<Integer> resultOfTimeArray = new TreeSet<>();
+        CountDownLatch countDownLatch2 = new CountDownLatch(10);
+
+        ConcurrentHashMap<Integer,Double> resultOfTimeArray = new ConcurrentHashMap();
+
+        ValueComparator idk = new ValueComparator(resultOfTimeArray);
+        TreeMap<Integer, Double> sorted_map = new TreeMap<Integer, Double>(idk);
+
+
+
+
+
+
+
 
         for (int i = 0; i < 10; i++) {
              final int index = i;
@@ -81,26 +94,92 @@ public class RaceMain {
 
                     long after = System.currentTimeMillis();
 
-                    int resultTime = (int) (after-before);
+                    long resultTime =  (after-before);
 
-                    resultOfTimeArray.add(resultTime);
+                    System.out.println("Time" + resultTime);
+
+                    try {
+                        tunelBarrier.acquire();
+                        System.out.println(index + " - Started add++++++++++++++");
+                        resultOfTimeArray.put(index, (double) resultTime);
+
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } finally {
+                        try {
+                            Thread.sleep(millis);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        System.out.println(index + " - Finished add+++++++++++++++ ");
+                        tunelBarrier.release();
+                    }
 
 
 
 
 
+
+
+                    countDownLatch2.countDown();
                 }
             }).start();
 
 
         }
 
-        System.out.println("Winner of race is index: "+ resultOfTimeArray.first() );
+//        Collections.sort(resultOfTimeArray);
+
+        System.out.println("Wait");
+        try {
+            countDownLatch2.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        sorted_map.putAll(resultOfTimeArray);
+        System.out.println("results: " + sorted_map);
+
+
+//        System.out.println("Winner of race is index: " +sorted_map.getKey(0) +"Time"+ resultOfTimeArray.get(1) );
+
+        for(Map.Entry<Integer, Double> entry: sorted_map.entrySet()) {
+
+
+            // if give value is equal to value from entry
+            // print the corresponding key
+
+                System.out.println("Winner of race is index: " + entry.getKey() + " Time " +entry.getValue() );
+                break;
+
+        }
+        for (int b = 0; b < resultOfTimeArray.size(); b++) {
+
+
+
+
+            System.out.println("Result of race is index: "+ resultOfTimeArray.get(b) );
+        }
 
     }
 
-    public void methods() {
+    static class ValueComparator implements Comparator<Integer> {
+        Map<Integer, Double> base;
 
+        public ValueComparator(Map<Integer, Double> base) {
+            this.base = base;
+        }
 
+        // Note: this comparator imposes orderings that are inconsistent with
+        // equals.
+        public int compare(Integer a, Integer b) {
+            if (base.get(a) <= base.get(b)) {
+                return -1;
+            } else {
+                return 1;
+            } // returning 0 would merge keys
+        }
     }
+
 }
