@@ -8,7 +8,7 @@ public class Main2 {
 
     public static void main(String[] args) {
 
-        Student student = new Student(20,30);
+       // Student student = new Student(20,30);
         List<String> ar = new ArrayList<>();
         ar.add("Ok");
         ar.add("Poka");

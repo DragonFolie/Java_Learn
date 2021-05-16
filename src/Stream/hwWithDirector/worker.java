@@ -1,7 +1,7 @@
-package Stream;
+package Stream.hwWithDirector;
 
 @FunctionalInterface
 public interface worker {
-    void work();
 
+    void work();
 }
